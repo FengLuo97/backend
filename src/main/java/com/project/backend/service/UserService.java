@@ -1,7 +1,7 @@
 package com.project.backend.service;
 
-import com.project.backend.dto.request.LoginRequest;
-import com.project.backend.dto.request.RegisterRequest;
+import com.project.backend.dto.request.user.LoginRequest;
+import com.project.backend.dto.request.user.RegisterRequest;
 
 /**
  * @Author: fengluo

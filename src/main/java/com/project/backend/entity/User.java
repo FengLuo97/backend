@@ -1,4 +1,4 @@
-package com.project.backend.domain.entity;
+package com.project.backend.entity;
 
 import lombok.*;
 

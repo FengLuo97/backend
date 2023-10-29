@@ -1,14 +1,66 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.backend.mapper.UserMapper">
 
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.project.backend.entity.User">
+        <id column="userId" property="userId" />
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="nickname" property="nickname" />
+        <result column="email" property="email" />
+        <result column="phoneNumber" property="phoneNumber" />
+        <result column="sex" property="sex" />
+        <result column="avatarUrl" property="avatarUrl" />
+        <result column="type" property="type" />
+        <result column="status" property="status" />
+        <result column="tmCreate" property="tmCreate" />
+        <result column="tmUpdate" property="tmUpdate" />
+    </resultMap>
 
-    <select id="selectUserByUserId" resultType="com.project.backend.domain.entity.User">
-        select *
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        userId, username, password, nickname, email, phoneNumber, sex, avatarUrl, type, status, tmCreate, tmUpdate
+    </sql>
+
+    <insert id="insertUser">
+        insert into t_user
+        (
+            username,
+            password,
+            nickname,
+            email,
+            phoneNumber,
+            sex,
+            avatarUrl,
+            type,
+            status
+        )
+        values
+        (
+            #{username},
+            #{password},
+            #{nickname},
+            #{email},
+            #{phoneNumber},
+            #{sex},
+            #{avatarUrl},
+            #{type},
+            #{status}
+        )
+    </insert>
+
+    <select id="selectUserByUserId" resultType="com.project.backend.entity.User">
+        select <include refid="Base_Column_List"></include>
         from t_user
         where userId = #{userId}
     </select>
+
+    <select id="selectUserByUsername" resultType="com.project.backend.entity.User">
+        select <include refid="Base_Column_List"></include>
+        from t_user
+        where username = #{username}
+    </select>
+
 
 </mapper>

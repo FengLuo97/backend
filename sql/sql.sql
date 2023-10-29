@@ -2,7 +2,7 @@ drop table if exists t_user;
 create table t_user (
     userId           bigint(20)      not null auto_increment        comment '用户id',
     username         varchar(20)     not null                       comment '用户名',
-    password         varchar(32)     not null                       comment '密码',
+    password         varchar(64)     not null                       comment '密码',
     nickname         varchar(20)     default null                   comment '用户昵称',
     email            varchar(50)     default null                   comment '用户邮箱',
     phoneNumber      varchar(20)     default null                   comment '手机号码',

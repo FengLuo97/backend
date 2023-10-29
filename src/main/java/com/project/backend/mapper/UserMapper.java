@@ -1,6 +1,6 @@
 package com.project.backend.mapper;
 
-import com.project.backend.domain.entity.User;
+import com.project.backend.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -11,6 +11,10 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface UserMapper {
 
+    int insertUser(User user);
+
     User selectUserByUserId(@Param("userId") Long userId);
+
+    User selectUserByUsername(@Param("username") String username);
 
 }
